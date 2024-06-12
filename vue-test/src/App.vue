@@ -1,15 +1,17 @@
 <script setup>
 
+import Navigation from './components/Navigation.vue';
 import Home from './views/Home.vue'
+import Footer from './components/Footer.vue';
 </script>
 
 <template>
-  <div>
+    <Navigation></Navigation>
     <Home></Home>
-  </div>
-  <HelloWorld msg="Vite + Vue" />
+    <Footer></Footer>
+
 </template>
 
 <style>
-@import "main.css"
+@import './main.css';
 </style>

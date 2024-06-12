@@ -249,12 +249,14 @@ hr[role="separator"] {
 .featured-card__buttons {
     display: flex;
     justify-content: space-between;
-    margin: 0 -1rem -1rem;
+    /*margin: 0 -1rem -1rem;*/
 }
 
 .featured-card__buttons > .icon-button {
     width: 50%;
     height: 2.75rem;
+    display: flex;
+    justify-content: center;
 }
 
 .featured-card__buttons > .icon-button > img {
@@ -502,9 +504,9 @@ main h2 {
         font-weight: 300;
     }
 
-    .featured-card__buttons {
+    /*.featured-card__buttons {
         margin: 0 -1.5rem -2rem;
-    }
+    }*/
 
     .banner-top .banner__left {
         flex-basis: 20%;
@@ -678,9 +680,9 @@ main h2 {
         font-size: 1.5rem;
     }
 
-    .featured-card__buttons {
+    /*.featured-card__buttons {
         margin: 0 -1.5rem -2rem;
-    }
+    }*/
 
     .featured-card__buttons > .icon-button {
         height: auto;

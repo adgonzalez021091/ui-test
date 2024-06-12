@@ -1,6 +1,18 @@
 {
     "data": [
         {
+            "name": "Pope Francis?",
+            "description": "He’s talking tough on clergy sexual abuse, or is he just another pervert protector? (thumbs down) or a true pedophile punishing pontiff? (thumbs up)",
+            "category": "entertainment",
+            "picture": "pope-francis.@2x.png",
+            "lastUpdated": "2020-03-10T23:08:57.892Z",
+            "votes": {
+                "positive": 23,
+                "negative": 36
+            },
+            "hero":true
+        },
+        {
             "name": "Kanye West",
             "description": "Born in Atlanta and raised in Chicago, West was first known as a producer for Roc-A-Fella Records in the early 2000s, producing singles for several mainstream artists.",
             "category": "entertainment",
