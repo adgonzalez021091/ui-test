@@ -3,6 +3,7 @@
     description: string;
     category: string;
     picture: string;
+    picture_url: string;
     lastUpdated: string;
     votes:VotesType;
     hero?: boolean|undefined;

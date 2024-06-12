@@ -11,14 +11,15 @@
             </div>    
         </div>
     </div>
-    <div v-if="props.typeBanner == 'bottom'" class="banner banner-bottom">
+    <div v-if="props.typeBanner == 'bottom'" class="banner banner-bottom" style="background-image: './assets/img/bg-people.@2x.png';">
+        <div class="banner__layer"></div>
         <div class="banner__heading">
             Is there anyone else you would want us to add?
         </div>
         <div class="banner__right">
-            <div class="banner__cta">
+            <button class="banner__cta">
                 Submit a name
-            </div>
+            </button>
         </div>
     </div>
 </template>

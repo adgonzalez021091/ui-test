@@ -6,7 +6,9 @@
             <option value="grid">Grid</option>
         </select>
     </div>
-    <Card v-for="poll in pollsList" :key="poll.name" :poll="poll"></Card>
+    <div class="cards-container">
+        <Card v-for="poll in pollsList" :key="poll.name" :poll="poll"></Card>
+    </div>
 </template>
 <script setup>
 import Card from './Card.vue'

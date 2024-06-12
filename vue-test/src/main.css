@@ -49,10 +49,10 @@ hr[role="separator"] {
     z-index: 2;
     top: 0;
     display: flex;
-    width: calc(100vw - 2rem);
+    width: calc(100vw - 12rem);
     min-height: 10rem;
     justify-content: space-between;
-    padding: 0 1rem;
+    padding: 0 6rem;
     background: linear-gradient(
         to bottom, 
         rgba(0, 0, 0, .8) 0%, 
@@ -104,10 +104,9 @@ hr[role="separator"] {
 }
 
 .nav__links {
-    position: fixed;
-    top: 0;
-    right: 0;
-    left: 0;
+    position: relative;
+    
+    
     display: flex;
     width: 100vw;
     height: calc(100vh - 4rem);
@@ -168,6 +167,7 @@ hr[role="separator"] {
     min-height: 35rem;
     max-height: 38rem;
     margin-bottom: 2rem;
+    
 }
 
 .hero__background {
@@ -185,6 +185,7 @@ hr[role="separator"] {
     overflow: hidden;
     width: 55vw;
     max-height: 25rem;
+    margin-left: 6rem;
 }
 
 .hero__closing-gauge {
@@ -249,7 +250,10 @@ hr[role="separator"] {
 .featured-card__buttons {
     display: flex;
     justify-content: space-between;
-    /*margin: 0 -1rem -1rem;*/
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    left: 0;
 }
 
 .featured-card__buttons > .icon-button {
@@ -416,7 +420,7 @@ main h2 {
 
 .footer__links li {
     padding: .5rem 0;
-    font-size: 1.25rem;
+    font-size: 1rem;
 }
 
 .footer__links li a {
@@ -496,6 +500,7 @@ main h2 {
 
     .featured-card__content {
         padding: 2rem 1.5rem;
+        
     }
 
     .featured-card__more-info {
@@ -606,9 +611,7 @@ main h2 {
     }
 
     .nav__links {
-        position: absolute;
-        top: 3rem;
-        right: 0;
+        position: relative;
         left: auto;
         width: 40vw;
         height: auto;
@@ -654,8 +657,8 @@ main h2 {
 
     .hero__featured-card {
         left: 0;
-        width: 50%;
-        min-width: 600px;
+        width: 40%;
+        min-width: 500px;
         max-height: unset;
         margin-top: 2.5rem;
     }
@@ -668,6 +671,7 @@ main h2 {
 
     .featured-card__content {
         padding: 2rem 1.5rem;
+        padding-bottom: 5rem;
     }
 
     .featured-card__desc {

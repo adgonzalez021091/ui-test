@@ -4,7 +4,7 @@
         
         
         <div>
-            <img :src="heroImage" alt="Hero image" class="hero__background"/>
+            <img :src="heroPoll.picture_url" alt="Hero image" class="hero__background"/>
             
             <div class="hero__featured-card">
                 
