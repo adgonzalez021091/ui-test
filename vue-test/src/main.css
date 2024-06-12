@@ -49,10 +49,9 @@ hr[role="separator"] {
     z-index: 2;
     top: 0;
     display: flex;
-    width: calc(100vw - 12rem);
+    width: calc(100vw - 20rem);
     min-height: 10rem;
     justify-content: space-between;
-    padding: 0 6rem;
     background: linear-gradient(
         to bottom, 
         rgba(0, 0, 0, .8) 0%, 
@@ -181,11 +180,10 @@ hr[role="separator"] {
 .hero__featured-card {
     position: relative;
     top: 5.5rem;
-    left: 1rem;
     overflow: hidden;
     width: 55vw;
     max-height: 25rem;
-    margin-left: 6rem;
+    
 }
 
 .hero__closing-gauge {
@@ -318,7 +316,7 @@ hr[role="separator"] {
     align-items: center;
     justify-content: space-between;
     padding: 1rem;
-    margin: 1rem;
+    margin: 1rem 0rem;
     background-color: var(--color-light-gray);
 }
 
@@ -368,6 +366,8 @@ hr[role="separator"] {
     flex-direction: column;
     padding: 1rem 3rem;
     margin-top: 2rem;
+    background-image: url("/src/assets/img/bg-people.@2x.png");
+    background-position: center;
 }
 
 .banner-bottom .banner__heading {
@@ -600,6 +600,7 @@ main h2 {
 
     .nav {
         min-height: 22vh;
+        padding: 0 10rem;
     }
 
     .nav__logo {
@@ -656,8 +657,9 @@ main h2 {
     }
 
     .hero__featured-card {
-        left: 0;
+        left: 10rem;
         width: 40%;
+        left: 10rem;
         min-width: 500px;
         max-height: unset;
         margin-top: 2.5rem;
@@ -699,7 +701,7 @@ main h2 {
     }
 
     .closing-gauge__left {
-        padding-right: 1rem;
+        padding-right: 1.5rem;
     }
 
     .closing-gauge__right {

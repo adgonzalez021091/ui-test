@@ -1,5 +1,5 @@
 .card-list {
-    height: 170px ;
+    height: 11rem ;
 }
 .card{
     display:block;
@@ -41,13 +41,19 @@
     position: relative;
     display: grid;
     gap: 10px;
-    grid-template-columns: 20% 57% 23%;
+    grid-template-columns: 20% 53% 1fr;
     width: 100%;
     height: 100%;
     background: linear-gradient(90deg, rgba(0, 0, 0, 0.0001) 0%, #888888 19.79%, #666666 50%, rgba(51, 51, 51, 0.6) 71.88%);
 }
 .card__actions__timepassed{
     text-align: right;
+}
+.list__header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
 }
 .cards-container{
     display:flex;
@@ -57,7 +63,7 @@
 .main-container{
     display: flex ;
     flex-direction: column;
-    padding: 30px 50px;
+    padding: 3rem 10rem;
     gap: 20px;
 }
 .card .icon-button > img{
@@ -72,7 +78,8 @@
     grid-template-rows: 2rem 1fr;
     color: var(--color-white);
     padding: 20px;
-    width: calc(100% - 60px);
+    padding-left:0px;
+    width: calc(100% - 40px);
     height: calc(100% - 40px);
     align-items: start;
 }
@@ -94,12 +101,44 @@
     font-size: 1rem;
     font-weight: normal;
 }
+.card__poll-gauge {
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    width: 100%;
+    height: 3rem;
+    background-color: var(--color-light-background);
+}
+.poll-gauge__left {
+    position: relative;
+    display: flex;
+    
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0 .25rem 0 0;
+    background-color: rgba(var(--color-green-positive), 0.8);
+        color: var(--color-white);
+    font-weight: 300;
+    text-transform: uppercase;
+}
+.poll-gauge__right {
+    position: relative;
+    display: flex;
+    
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0 .25rem 0 0;
+    background-color: rgba(var(--color-yellow-negative), 0.8);
+    color: var(--color-white);
+    font-weight: 300;
+    text-transform: uppercase;
+}
 
-
-
-
-
-
+.fixed{
+    position: absolute;
+    top:0;
+    left:0;
+}
 .footer__links{
     display: flex;
     gap: 30px;
@@ -108,5 +147,7 @@
     position: absolute;
     width: 100%;
     height: 100%;
+    top:0;
+    left:0;
     background: rgba(255, 255, 255, 0.8);
 }

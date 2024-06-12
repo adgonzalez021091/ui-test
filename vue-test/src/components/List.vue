@@ -1,6 +1,6 @@
 <template>
-    <div>
-        <h1>Previous Rulings</h1>
+    <div class="list__header">
+        <h2>Previous Rulings</h2>
         <select>
             <option value="list">List</option>
             <option value="grid">Grid</option>

@@ -35,7 +35,7 @@
             </div>
             <div class="hero__closing-gauge">
                 <div class="closing-gauge__left">
-                    Closes in
+                    Closing in
                 </div>
                 <div class="closing-gauge__right">
                     <p class="closing-gauge__number">22</p> 

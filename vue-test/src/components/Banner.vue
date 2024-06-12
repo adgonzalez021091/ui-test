@@ -11,7 +11,7 @@
             </div>    
         </div>
     </div>
-    <div v-if="props.typeBanner == 'bottom'" class="banner banner-bottom" style="background-image: './assets/img/bg-people.@2x.png';">
+    <div v-if="props.typeBanner == 'bottom'" class="banner banner-bottom"  >
         <div class="banner__layer"></div>
         <div class="banner__heading">
             Is there anyone else you would want us to add?

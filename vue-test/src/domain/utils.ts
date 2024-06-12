@@ -1,3 +1,4 @@
+import { VotesType } from "@/domain/Polls";
 function getTimePassed(date:String){
     const currentDate = new Date();
     const dateToCompare = new Date(date);
@@ -23,5 +24,10 @@ function getTimePassed(date:String){
     }
     
 }
-
-export {getTimePassed}
+function getVotesPercentage(votes:VotesType){
+    const total = votes.positive + votes.negative;
+    const positive = (votes.positive/total)*100;
+    const negative = (votes.negative/total)*100;
+    return {"positive":positive.toFixed(2),"negative":negative.toFixed(2)}
+}
+export {getTimePassed,getVotesPercentage}
