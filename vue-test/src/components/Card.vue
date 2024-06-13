@@ -66,7 +66,7 @@ const props = defineProps({
     typeCard:String
 });
 const timePassed = ref(getTimePassed(props.poll?.lastUpdated))
-const numberCharacters = computed(()=>(props.typeCard == "list")?110:60);
+const numberCharacters = computed(()=>(props.typeCard == "list")?110:80);
 const votes = computed(()=> getVotesPercentage(props.poll?.votes))
 const selected = ref<"positive"|"negative"|null>(null)
 const voted = ref<boolean>(false)
@@ -86,7 +86,7 @@ const reset = ()=> {
 </script>
 <style scoped>
 .card-list {
-    height: 11rem ;
+    height: 12rem ;
 }
 .card-grid {
     width: 25vw;
@@ -106,6 +106,8 @@ const reset = ()=> {
     color: var(--color-white);
     font-size: 2rem;
     font-weight: 300;
+    display: flex;
+    align-items: flex-end;
     
 }
 .card__description{
@@ -123,9 +125,16 @@ const reset = ()=> {
     gap: 10px;
 }
 .card-grid .card__content{
+    color: var(--color-white);
+    height: calc(100% - 40px);
+    display: grid;
+    flex-direction: column;
+    grid-template-rows: 4rem 3rem;
+    gap: 10px;
     padding: 0.75rem 2.5rem;
-    height: unset;
+    height: 8rem;
 }
+
 .card__image-container{
     position: absolute;
     height: 100%;
@@ -147,7 +156,7 @@ const reset = ()=> {
 }
 .card-grid .card__content-container{
     grid-template-columns: 1fr;
-    grid-template-rows: 30% auto 1fr;
+    grid-template-rows: 18% auto 1fr;
     background: linear-gradient(180deg, rgba(0, 0, 0, 0.0001) 0%, rgba(0, 0, 0, 0.6) 100%);
     gap:0;
     
@@ -279,14 +288,17 @@ const reset = ()=> {
         width: 44vw;
         height: 45vw;
     }  
+    .card-grid .card__content-container{
+        grid-template-rows: 30% 38% 1fr;
+    }
 }
 @media all and (max-width: 768px) {
     .card-grid {
-        width: 95vw;
-        height: 95vw;
+        width: 90vw;
+        height: 90vw;
     }  
     .card-grid .card__content{
-        padding: 1.5rem 4rem;
+        padding: 1rem 4rem;
     }
     .card-grid .icon-button{
         padding: 0.9rem;
@@ -296,18 +308,20 @@ const reset = ()=> {
     }
     .card__cta{
         padding: 1.5rem 0;
+        font-size:1.25rem;
     }
-    .footer__links {
-        flex-direction: column;
-        gap: 6px;
-    }
+    
     .card__description{
         
         font-size: 1.25rem;
     }
     .card-grid .card__content-container{
     
-    grid-template-rows: 40% auto 1fr;
+    grid-template-rows: 30% auto 1fr;
+    width:inherit;
+    }
+    .card-grid .card__image-container{
+        width: inherit;
     }
 }
 </style>

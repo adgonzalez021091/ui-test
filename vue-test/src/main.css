@@ -485,6 +485,9 @@ main h2 {
 }
 
 @media all and (max-width: 768px) {
+    html, body {
+        width: 102vw;
+    }
     .banner-top .banner__left {
         flex-basis: 45%;
     }
@@ -522,11 +525,16 @@ main h2 {
         padding: 0rem var(--padding-mobile);
         
     }
+    .footer__links {
+        flex-direction: column;
+        gap: 0px;
+    }
 }
 
 @media all and (1100px >= width > 768px) {
     html, body {
         font-size: 14px;
+        
     }
     .nav {
         width: calc(100% - (var(--padding-tablet) *2));
@@ -642,7 +650,7 @@ main h2 {
 
 @media all and (min-width: 1100px) {
     html, body {
-        font-size: 15px;
+        font-size: 17px;
     }
 
     .max-centered {

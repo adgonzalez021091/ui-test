@@ -24,7 +24,6 @@ const voteHandler = ({id,vote}) => {
     const index = pollsList.data.findIndex((poll) => poll.id === id); 
     const prev = pollsList.data[index]
     const votes = prev.votes[vote]
-    console.log(".....",id,vote,prev,index,votes)
     pollsList.data[index].votes[vote] = votes+1
 }
 const typeCard = ref((isMobile)?"grid":"list")
@@ -50,6 +49,15 @@ const typeCard = ref((isMobile)?"grid":"list")
 .list__custom-select {
     position: relative;
     
+}
+@media all and (max-width: 768px) {
+    .cards-container.grid{
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+        flex-wrap: nowrap;
+        overflow: scroll;
+}
 }
 
 
