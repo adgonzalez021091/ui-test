@@ -2,10 +2,7 @@
     <div class="list__header">
         <h2>Previous Rulings</h2>
         <div class="list__custom-select" style="width:200px;" v-show="!isMobile">
-            <select v-model="typeCard">
-                <option value="list">List</option>
-                <option value="grid">Grid</option>
-            </select>
+            <ViewPicker :default="typeCard" @viewPicked="handleViewPicked"></ViewPicker>
         </div>
     </div>
     <div class="cards-container" :class="typeCard">
@@ -15,22 +12,25 @@
 <script setup>
 //IMPORTS
 import Card from './Card.vue'
+import ViewPicker from './ViewPicker.vue';
 import { reactive,ref } from 'vue'
 import Polls from '../domain/Polls';
 
 //DECLARATIONS
 const polls = new Polls()
 const pollsList = reactive({"data":polls.getPolls()})
-const isMobile = ref(window.innerWidth < 768)
+const isMobile = window.innerWidth < 768;
 const typeCard = ref((isMobile)?"grid":"list")
 
 //METHODS
 const voteHandler = ({id,vote}) => {
     const index = pollsList.data.findIndex((poll) => poll.id === id); 
     const prev = pollsList.data[index]
-    const votes = prev.votes[vote]
     pollsList.data[index].votes = polls.updateVotes(id,vote)
 }
+const handleViewPicked = (value) => {
+    typeCard.value = value
+}   
 </script>
 <style scoped> 
 .cards-container.grid{

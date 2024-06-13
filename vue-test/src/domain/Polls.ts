@@ -17,7 +17,6 @@ import data from "./data.json"
 export default class Polls {
     list:PollType[];
   constructor() {
-    console.log(localStorage.getItem("list"))
     if(!localStorage.getItem("list")){
       this.list = data.data.map((poll,index) => {return {...poll,id:index}});
       localStorage.setItem("list",JSON.stringify(this.list));
