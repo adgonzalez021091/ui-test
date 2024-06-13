@@ -452,10 +452,6 @@ main h2 {
     margin-right: 1rem;
 }
 
-.featured-card__more-info {
-    display: none;
-}
-
 .featured-card__more-info-icon {
     width: 1.5rem;
     height: 1rem;
@@ -514,7 +510,7 @@ main h2 {
     .featured-card__content{
         padding-bottom: 4rem;
     }
-    .non-mobile{
+    .featured-card__more-info {
         display: none;
     }
     .hero{
