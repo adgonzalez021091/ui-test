@@ -13,7 +13,9 @@
     --padding-tablet:2rem;
     --padding-mobile:1rem;
 }
-
+figure {
+    margin: 0;
+}
 html, body {
     width: 100%;
     margin: 0;
@@ -421,7 +423,11 @@ main h2 {
     justify-content: space-between;
     margin: 0 1rem 3rem;
 }
-
+.footer__links ul {
+    display: flex;
+    gap: 2rem;
+    flex-direction: row;
+}
 .footer__links li {
     padding: .5rem 0;
     font-size: 1rem;
@@ -445,7 +451,7 @@ main h2 {
 
 .footer__social > ul {
     display: flex;
-    margin-top: 1rem;
+    
 }
 
 .footer__social > ul > li {
@@ -470,10 +476,6 @@ main h2 {
     flex-direction: column;
     padding: 0rem var(--padding-desktop);
     gap: 20px;
-}
-.footer__links{
-    display: flex;
-    gap: 30px;
 }
 .banner__layer{
     position: absolute;
@@ -525,7 +527,7 @@ main h2 {
         padding: 0rem var(--padding-mobile);
         
     }
-    .footer__links {
+    .footer__links ul{
         flex-direction: column;
         gap: 0px;
     }
@@ -574,7 +576,7 @@ main h2 {
 
     .featured-card__content {
         padding: 2rem 1.5rem;
-        
+        padding-bottom: 4rem;
     }
 
     .featured-card__more-info {
@@ -583,9 +585,7 @@ main h2 {
         font-weight: 300;
     }
 
-    .featured-card__buttons {
-        margin: 0 -1.5rem -2rem;
-    }
+    
 
     .banner-top .banner__left {
         flex-basis: 25%;
@@ -650,7 +650,7 @@ main h2 {
 
 @media all and (min-width: 1100px) {
     html, body {
-        font-size: 17px;
+        font-size: 15px;
     }
 
     .max-centered {
@@ -825,6 +825,7 @@ main h2 {
     }
     .footer__social {
         display: flex;
+        gap:20px;
     }
     main h2 {
         font-size: 2.5rem;

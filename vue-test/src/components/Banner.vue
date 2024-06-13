@@ -1,5 +1,5 @@
 <template>
-    <div v-if="props.typeBanner == 'top'" class="banner banner-top">
+    <aside v-if="props.typeBanner == 'top'" class="banner banner-top">
         <div class="banner__left">
             <div class="banner__hairline">Speak out. Be heard. </div>
             <div class="banner__title">Be counted </div>
@@ -10,8 +10,8 @@
                 Rule of Thumb is a crowd sourced court of public opinion where anyone and everyone can speak out and speak freely. It’s easy: You share your opinion, we analyze and put the data in a public report.
             </div>    
         </div>
-    </div>
-    <div v-if="props.typeBanner == 'bottom'" class="banner banner-bottom"  >
+    </aside>
+    <aside v-if="props.typeBanner == 'bottom'" class="banner banner-bottom"  >
         <div class="banner__layer"></div>
         <div class="banner__heading">
             Is there anyone else you would want us to add?
@@ -21,7 +21,7 @@
                 Submit a name
             </button>
         </div>
-    </div>
+    </aside>
 </template>
 <script setup lang="ts">
 const props = defineProps({

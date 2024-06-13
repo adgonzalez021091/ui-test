@@ -1,16 +1,16 @@
 <template>
-    <div class="card" :class="'card-'+typeCard">
-        <div class="card__image-container">
+    <article class="card" :class="'card-'+typeCard">
+        <div class="card__image-container" aria-label="poll image">
             <img class="card__image" :src="props.poll?.picture_url"></img>
         </div>
         <div class="card__content-container">
-            <div></div>
+            <div aria-label="empty space"></div>
             <div class="card__content">
-                <div class="card__title">{{ props.poll?.name }}</div>
-                <div class="card__description">{{ (props.poll?.description.length > numberCharacters)?props.poll?.description.substring(0,numberCharacters)+"...":props.poll?.description }}</div>
+                <summary class="card__title" aria-label="poll title">{{ props.poll?.name }}</summary>
+                <span class="card__description" aria-label="poll description">{{ (props.poll?.description.length > numberCharacters)?props.poll?.description.substring(0,numberCharacters)+"...":props.poll?.description }}</span>
             </div>
             <div class="card__actions">
-                <div class="card__actions__timepassed" v-if="!voted">
+                <div class="card__actions__timepassed" v-if="!voted" aria-label="poll time passed since published">
                     {{ timePassed }} in {{ props.poll?.category }}
                 </div>
                 <div class="card__actions__timepassed" v-else>
@@ -18,63 +18,67 @@
                 </div>
                 <div class="card__actions__thumbs">
                     
-                    <button class="icon-button" :class="{'selected':selected == 'positive'}" aria-label="thumbs up" 
-                    @click="select('positive')" v-show="voted == false">
+                    <button class="icon-button" :class="{'selected':selected == 'positive'}" aria-label="thumbs up"  @click="select('positive')" v-show="voted == false">
                     <img src="../assets/img/thumbs-up.svg"/>
                 </button>
-                <button class="icon-button" :class="{'selected':selected == 'negative'}" aria-label="thumbs down" 
-                @click="select('negative')" v-show="voted == false">
+                <button class="icon-button" :class="{'selected':selected == 'negative'}" aria-label="thumbs down"  @click="select('negative')" v-show="voted == false">
+                    <img src="../assets/img/thumbs-down.svg"/>
+                </button>
+                <button class="card__cta" :disabled="!selected" @click="vote" v-if="!voted" aria-label="vote action">
+                    Vote now
+                </button>
+                <button class="card__cta" @click="reset" v-else aria-label="vote again action">
+                    Vote again
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="card__poll-gauge">
+        <div class="poll-gauge__left" :style="{width:votes.positive+'%'}" aria-label="percentage of positives votes for this poll">
+            <div class="icon-button" aria-label="thumbs up">
+                <img src="../assets/img/thumbs-up.svg"/>
+            </div>
+            {{ votes.positive }}% 
+        </div>
+        <div class="poll-gauge__right" :style="{width:votes.negative+'%'}" aria-label="percentage of negative votes for this poll">
+            {{ votes.negative }}% 
+            <div class="icon-button" aria-label="thumbs down">
                 <img src="../assets/img/thumbs-down.svg"/>
-            </button>
-            <button class="card__cta" :disabled="!selected" @click="vote" v-if="!voted">
-                Vote now
-            </button>
-            <button class="card__cta" @click="reset" v-else>
-                Vote again
-            </button>
+            </div>
+            
         </div>
     </div>
-</div>
-<div class="card__poll-gauge">
-    <div class="poll-gauge__left" :style="{width:votes.positive+'%'}">
-        <div class="icon-button" aria-label="thumbs up">
-            <img src="../assets/img/thumbs-up.svg"/>
-        </div>
-        {{ votes.positive }}% 
+    <div class="fixed icon-button" aria-label="thumbs down" v-if="votes.negative > votes.positive">
+        <img src="../assets/img/thumbs-down.svg"/>
     </div>
-    <div class="poll-gauge__right" :style="{width:votes.negative+'%'}">
-        {{ votes.negative }}% 
-        <div class="icon-button" aria-label="thumbs down">
-            <img src="../assets/img/thumbs-down.svg"/>
-        </div>
-        
+    <div class="fixed icon-button" aria-label="thumbs up" v-else>
+        <img src="../assets/img/thumbs-up.svg"/>
     </div>
-</div>
-<div class="fixed icon-button" aria-label="thumbs down" v-if="votes.negative > votes.positive">
-    <img src="../assets/img/thumbs-down.svg"/>
-</div>
-<div class="fixed icon-button" aria-label="thumbs up" v-else>
-    <img src="../assets/img/thumbs-up.svg"/>
-</div>
-</div>
+</article>
 </template>
 <script setup lang="ts">
+//IMPORTS
 import { defineProps,ref,computed } from 'vue';
 import {getTimePassed, getVotesPercentage} from '../domain/utils'
+
+//DECLARATIONS
 const props = defineProps({
     poll:Object,
     typeCard:String
 });
 const timePassed = ref(getTimePassed(props.poll?.lastUpdated))
-const numberCharacters = computed(()=>(props.typeCard == "list")?110:80);
-const votes = computed(()=> getVotesPercentage(props.poll?.votes))
 const selected = ref<"positive"|"negative"|null>(null)
 const voted = ref<boolean>(false)
+
+const numberCharacters = computed(()=>(props.typeCard == "list")?110:80);
+const votes = computed(()=> getVotesPercentage(props.poll?.votes))
+const emit= defineEmits(["voteHandler"])
+
+//METHODS
 const select = (value)=> {
     console.log("selected...",value)
     selected.value = value
 }
-const emit= defineEmits(["voteHandler"])
 const vote = () => {
     voted.value = true;
     emit('voteHandler',{id:props.poll?.id, vote:selected.value})
@@ -89,8 +93,8 @@ const reset = ()=> {
     height: 12rem ;
 }
 .card-grid {
-    width: 25vw;
-    height: 25vw;
+    width: 21rem;
+    height: 21rem;
 }
 .card{
     display:block;
@@ -280,18 +284,7 @@ const reset = ()=> {
 .card-grid .fixed{
     top: calc(50% - 15px);
 }
-@media all and (1100px >= width > 768px) {
-    .card__content-container{
-        grid-template-columns: 16% 50% 1fr;
-    }
-    .card-grid {
-        width: 44vw;
-        height: 45vw;
-    }  
-    .card-grid .card__content-container{
-        grid-template-rows: 30% 38% 1fr;
-    }
-}
+
 @media all and (max-width: 768px) {
     .card-grid {
         width: 90vw;
@@ -316,9 +309,9 @@ const reset = ()=> {
         font-size: 1.25rem;
     }
     .card-grid .card__content-container{
-    
-    grid-template-rows: 30% auto 1fr;
-    width:inherit;
+        
+        grid-template-rows: 30% auto 1fr;
+        width:inherit;
     }
     .card-grid .card__image-container{
         width: inherit;

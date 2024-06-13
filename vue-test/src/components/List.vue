@@ -13,21 +13,24 @@
     </div>
 </template>
 <script setup>
+//IMPORTS
 import Card from './Card.vue'
 import { reactive,ref } from 'vue'
 import Polls from '../domain/Polls';
+
+//DECLARATIONS
 const polls = new Polls()
 const pollsList = reactive({"data":polls.getPolls()})
 const isMobile = ref(window.innerWidth < 768)
+const typeCard = ref((isMobile)?"grid":"list")
 
+//METHODS
 const voteHandler = ({id,vote}) => {
     const index = pollsList.data.findIndex((poll) => poll.id === id); 
     const prev = pollsList.data[index]
     const votes = prev.votes[vote]
-    //pollsList.data[index].votes[vote] = votes+1
     pollsList.data[index].votes = polls.updateVotes(id,vote)
 }
-const typeCard = ref((isMobile)?"grid":"list")
 </script>
 <style scoped> 
 .cards-container.grid{

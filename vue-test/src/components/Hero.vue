@@ -1,10 +1,10 @@
 <template>
     
-    <main class="hero">
+    <header class="hero">
         
         
         <div>
-            <img :src="heroPoll.picture_url" alt="Hero image" class="hero__background"/>
+            <img :src="heroPoll.picture_url" alt="Hero image" aria-label="upper hero image" class="hero__background"/>
             
             <div class="hero__featured-card">
                 
@@ -13,10 +13,10 @@
                 <div class="featured-card__content">
                     
                     <div class="featured-card__hairline">What's your opinion on</div>
-                    <div class="featured-card__title">{{ heroPoll.name }}</div>
-                    <div class="featured-card__desc">{{ heroPoll.description }}</div>
-                    <div class="featured-card__more-info non-mobile">
-                        <img src="../assets/img/wikipedia.svg"/>
+                    <div class="featured-card__title" aria-label="hero poll title">{{ heroPoll.name }}</div>
+                    <div class="featured-card__desc" aria-label="hero poll description">{{ heroPoll.description }}</div>
+                    <div class="featured-card__more-info">
+                        <img src="../assets/img/wikipedia.svg" aria-label="wikipedia logo" alt="wikipedia logo"/>
                         More information
                     </div>
                     <div class="featured-card__cta">What's Your Veredict?</div>
@@ -47,14 +47,11 @@
         
         
         
-    </main>
+    </header>
 </template>
 <script setup>  
-import Navigation from './Navigation.vue'
 import Polls from '../domain/Polls'
-import {reactive,computed} from 'vue'
+import {reactive} from 'vue'
 const polls = new Polls()
 const heroPoll = reactive(polls.getHeroPoll())
-const heroImage = computed(() => new URL('../assets/img/'+heroPoll.picture, import.meta.url))
-
 </script>
