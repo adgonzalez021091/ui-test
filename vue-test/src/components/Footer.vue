@@ -13,8 +13,9 @@
         
         
         <div class="footer__social">
-            <span>Follow us</span>
+            
             <ul class="footer__links">
+                <li>Follow us</li>
                 <li><a><img src="../assets/img/facebook.svg"/></a></li>
                 <li><a><img src="../assets/img/twitter.svg"/></a></li>
                 

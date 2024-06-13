@@ -1,4 +1,5 @@
- interface PollType {    
+ interface PollType {  
+  id:number;  
     name: string;
     description: string;
     category: string;
@@ -16,7 +17,7 @@ import data from "./data.json"
 export default class Polls {
     list:PollType[];
   constructor(private readonly polls: PollType[]) {
-    this.list = data.data;
+    this.list = data.data.map((poll,index) => {return {...poll,id:index}});
   }
 
   getPolls(): PollType[] {

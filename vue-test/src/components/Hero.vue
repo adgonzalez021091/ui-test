@@ -15,7 +15,7 @@
                     <div class="featured-card__hairline">What's your opinion on</div>
                     <div class="featured-card__title">{{ heroPoll.name }}</div>
                     <div class="featured-card__desc">{{ heroPoll.description }}</div>
-                    <div class="featured-card__hairline">
+                    <div class="featured-card__hairline non-mobile">
                         <img src="../assets/img/wikipedia.svg"/>
                         More information
                     </div>
