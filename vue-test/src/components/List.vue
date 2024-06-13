@@ -24,7 +24,8 @@ const voteHandler = ({id,vote}) => {
     const index = pollsList.data.findIndex((poll) => poll.id === id); 
     const prev = pollsList.data[index]
     const votes = prev.votes[vote]
-    pollsList.data[index].votes[vote] = votes+1
+    //pollsList.data[index].votes[vote] = votes+1
+    pollsList.data[index].votes = polls.updateVotes(id,vote)
 }
 const typeCard = ref((isMobile)?"grid":"list")
 </script>
