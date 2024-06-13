@@ -1,7 +1,9 @@
 <template>
     <div class="picker-option selected" @click="open = !open">
         {{ (selected == 'list')? 'List': 'Grid' }}
-        
+        <svg width="10" height="7" viewBox="0 0 10 7" xmlns="http://www.w3.org/2000/svg">
+  <path d="M5 7 L0 0 H10 Z" fill="black"/>
+</svg>
     </div>
     <div class="picker-options" v-show="open">
         <div class="picker-option" @click="selection('list')">List</div>
@@ -26,9 +28,11 @@ const selection = (value) =>{
     top: 2rem;
     left: 0;
     z-index:2;
-
+    
 }
 .picker-option{
+    align-items: center;
+    gap: 20px;
     background-color: white;
     cursor: pointer;
     width: 7rem;
@@ -37,6 +41,6 @@ const selection = (value) =>{
     display: flex;
     flex-direction: row;
     justify-content: center;
-
+    
 }
 </style>
